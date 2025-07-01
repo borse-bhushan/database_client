@@ -84,13 +84,7 @@ class PyDBClient(metaclass=SingletonMeta):
                 "query": query,
                 "action": action,
                 "payload": payload,
-                "auth": (
-                    {
-                        "token": self.auth_token,
-                    }
-                    if self.auth_token
-                    else None
-                ),
+                "auth": self.auth_token,
             }
         )
 
