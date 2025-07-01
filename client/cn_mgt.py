@@ -67,7 +67,6 @@ class DBConnection(metaclass=SingletonMeta):
         # Example: echo back the received data length
         query_data = query_data.decode()
 
-        print("query_data >>> ", query_data, type(query_data))
         return query_data
 
     def send(self, data: str):
