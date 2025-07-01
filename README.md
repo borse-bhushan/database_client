@@ -1,4 +1,4 @@
-# 🗄️ database_client
+# 🗄️ Database Client
 
 A Python client for connecting to and interacting with a custom database server.
 Easily perform CRUD operations, manage connections, and handle errors with a simple API.
