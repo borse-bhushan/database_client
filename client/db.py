@@ -1,13 +1,13 @@
 import json
 
 
+from .utils import get_uuid
 from .exc import PYDBException
 from .cn_mgt import DBConnection
 from .constants import ActionEnum
-from .singleton import SingletonMeta
 
 
-class PyDBClient(metaclass=SingletonMeta):
+class PyDBClient:
 
     def __init__(
         self,
@@ -28,13 +28,20 @@ class PyDBClient(metaclass=SingletonMeta):
             port=port,
         )
 
-    def create(self, data):
+    def create(self, table, data):
 
-        req_payload = self._construct_payload(ActionEnum.CREATE, payload=data)
+        if not "pk" in data:
+            data["pk"] = get_uuid()
+
+        req_payload = self._construct_payload(
+            table=table,
+            payload=data,
+            action=ActionEnum.CREATE,
+        )
 
         self._send(req_payload)
 
-        return self._recv_data()
+        return self._recv_data()["payload"]
 
     def find(self, query):
 
@@ -78,9 +85,10 @@ class PyDBClient(metaclass=SingletonMeta):
 
         return True
 
-    def _construct_payload(self, action, query=None, payload=None):
+    def _construct_payload(self, action, query=None, payload=None, table=None):
         return json.dumps(
             {
+                "table": table,
                 "query": query,
                 "action": action,
                 "payload": payload,
@@ -101,6 +109,7 @@ class PyDBClient(metaclass=SingletonMeta):
         return True
 
     def handle_error(self, error_details):
+        self.close()
         raise PYDBException(**error_details)
 
     def _login(self):
