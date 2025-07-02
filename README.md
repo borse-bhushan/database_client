@@ -16,7 +16,7 @@ Easily perform CRUD operations, manage connections, and handle errors with a sim
 Clone this repository:
 
 ```sh
-git clone https://github.com/yourusername/database_client.git
+git clone https://github.com/borse-bhushan/database_client.git
 cd database_client
 ```
 
@@ -61,7 +61,7 @@ db = PyDBClient(
 
 ## 🧩 Project Structure
 
-```
+```bash
 database_client/
 ├── app.py
 ├── client/
