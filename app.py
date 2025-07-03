@@ -7,7 +7,9 @@ db.connect()
 
 db.ping()
 
-data = db.create(data={"first_name": "hello"}, table="user")
+data = db.create(data={"first_name": "world"}, table="user")
+
+data = db.find(query={"first_name": "world"}, table="user")
 
 print("data >>> ", data)
 

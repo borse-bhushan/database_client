@@ -43,9 +43,9 @@ class PyDBClient:
 
         return self._recv_data()["payload"]
 
-    def find(self, query):
+    def find(self, query, table):
 
-        req_payload = self._construct_payload(ActionEnum.SELECT, query=query)
+        req_payload = self._construct_payload(ActionEnum.SELECT, query=query, table=table)
 
         self._send(req_payload)
 
