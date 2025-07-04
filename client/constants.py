@@ -1,5 +1,7 @@
 class ActionEnum:
 
+    CREATE_TABLE = "CREATE_TABLE"
+
     CREATE = "CREATE"
     UPDATE = "UPDATE"
     DELETE = "DELETE"
