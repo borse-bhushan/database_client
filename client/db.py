@@ -65,10 +65,10 @@ class PyDBClient:
 
         return self._recv_data()
 
-    def update(self, query, data):
+    def update(self, query, data, table):
 
         req_payload = self._construct_payload(
-            ActionEnum.UPDATE, query=query, payload=data
+            ActionEnum.UPDATE, query=query, payload=data, table=table
         )
         self._send(req_payload)
 
