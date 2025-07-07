@@ -143,3 +143,14 @@ class PyDBClient:
         self.auth_token = recv["payload"]
 
         return True
+
+    def drop_table(self, table):
+
+        payload = self._construct_payload(
+            table=table,
+            action=ActionEnum.DROP_TABLE,
+        )
+
+        self._send(payload)
+
+        return self._recv_data()

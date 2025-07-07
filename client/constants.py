@@ -1,13 +1,14 @@
 class ActionEnum:
 
-    CREATE_TABLE = "CREATE_TABLE"
-
+    PING = "PING"
     CREATE = "CREATE"
     UPDATE = "UPDATE"
     DELETE = "DELETE"
     SELECT = "SELECT"
 
-    PING = "PING"
+    CREATE_TABLE = "CREATE_TABLE"
+
+    DROP_TABLE = "DROP_TABLE"
 
     LOGIN = "LOGIN"
 

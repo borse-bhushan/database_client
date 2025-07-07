@@ -9,8 +9,9 @@ try:
 
     db.ping()
 
-    data = db.create(data={"first_name": "Hello", "age": 324}, table="user")
+    # data = db.create(data={"first_name": "Hello", "age": 324}, table="user")
 
+    db.drop_table(table="user")
 
 except PYDBException as e:
     print(e, e.ref_data or "")
