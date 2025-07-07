@@ -51,19 +51,24 @@ try:
     #     table="user",
     # )
 
-    updated = db.update(
-        data={
-            "age": 40,
-            # "salary": 34345.345,
-            # "is_active": True,
-            # "first_name": "Hello",
-            # "join_date": datetime.now().isoformat(),
-        },
+    # updated = db.update(
+    #     data={
+    #         "age": 40,
+    #         # "salary": 34345.345,
+    #         # "is_active": True,
+    #         # "first_name": "Hello",
+    #         # "join_date": datetime.now().isoformat(),
+    #     },
+    #     query={"first_name": "World"},
+    #     table="user",
+    # )
+
+    updated = db.delete(
         query={"first_name": "World"},
         table="user",
     )
-    print(updated)
 
+    print(updated)
 
     # db.drop_table(table="user")
 
