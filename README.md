@@ -1,4 +1,4 @@
-# 🗄️ database_client
+# 🗄️ Database Client
 
 A Python client library for interacting with a custom TCP-based database server.
 Provides a high-level API for table management, CRUD operations, authentication, and robust error handling over a socket connection.
